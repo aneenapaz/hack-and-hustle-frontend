@@ -115,7 +115,7 @@
             <img src="assets/logo.png" alt="Logo" width="100">
         </div>
         <nav>
-            <a href="index1.html"><button class="back-to-home">Back to Home</button></a>
+            <a href="index.html"><button class="back-to-home">Back to Home</button></a>
         </nav>
     </header>
 
@@ -139,7 +139,7 @@
                     <label for="image">Image:</label><br>
                     <input type="file" id="image" name="image" accept="image/*"><br><br>
 
-                    <a href="index1.html"><button type="submit" class="submit-button">Submit</button></a>
+                    <a href="index.html"><button type="submit" class="submit-button">Submit</button></a>
                 </form>
             </div>
         </div>
@@ -171,7 +171,7 @@
                 .then(data => {
                     if (data.success) {
                         alert("Food spot added successfully!");
-                        window.location.href = 'index1.html';
+                        window.location.href = 'index.html';
                     } else {
                         alert("Error adding food spot: " + data.message);
                     }
