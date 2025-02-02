@@ -1,0 +1,133 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #f0f0f0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.nav-links {
+  display: flex;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.hero {
+  text-align: left;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 400px;
+}
+
+.hero-content {
+  max-width: 65%;
+  margin-left: 50px;
+}
+
+.hero h1 {
+  font-size: 6em;
+  font-family: 'Roboto Slab', serif;
+  font-weight: normal;
+  display: inline-block;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  max-width: 70%;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.discover-flavors-button, .add-a-spot-button , .find-by-location{
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #8B4513;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.discover-flavors-button:hover, .add-a-spot-button:hover {
+  background-color: #602800;
+}
+
+.boxes {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.white-box {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.box-heading {
+  font-size: 1em;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.box-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Important: Makes the whole container clickable */
+}

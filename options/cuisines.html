@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Juice Up Restaurants</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: beige;
+  color: black;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: 90vh;
+  align-content: space-around;
+}
+
+.dish-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 250px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+}
+
+.dish-icon:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker overlay on hover */
+}
+
+.dish-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.dish-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dish-description {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+  .dish-grid {
+    grid-template-columns: repeat(2, 1fr);
+    height: 90vh;
+  }
+  .dish-icon {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dish-grid {
+    grid-template-columns: repeat(1, 1fr);
+    height: 90vh;
+  }
+  .dish-icon {
+    min-height: 200px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Flavors of India: Most Popular Cuisines You Love</h1>
+
+<div class="dish-grid">
+
+  <div class="dish-icon" style="background-image: url('assets/north.jpeg');">
+    <div class="dish-image"></div>
+    <div class="dish-content">
+      <div class="dish-description"><b>North Indian Cuisine:</b> Butter Chicken<br>A creamy, rich tomato-based curry with tender tandoori chicken, best paired with naan.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/south.jpg');">
+    <div class="dish-image"></div>
+    <div class="dish-content">
+      <div class="dish-description"><b>South Indian Cuisine:</b> Masala Dosa<br>A crispy, golden rice crepe filled with spiced potato masala, served with chutneys and sambar.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/mugh.jpg');">
+    <div class="dish-image"></div>
+    <div class="dish-content">
+      <div class="dish-description"><b>Mughlai Cuisine:</b> Biryani<br>Aromatic, slow-cooked rice layered with marinated meat, saffron, and whole spices.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/guj.jpg');">
+    <div class="dish-image"></div>
+    <div class="dish-content">
+      <div class="dish-description"><b>Gujarati Cuisine:</b> Dhokla<br>Soft, spongy steamed gram flour cakes, lightly spiced and served with chutney.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/raj.jpg');">
+    <div class="dish-image"></div>
+    <div class="dish-content">
+      <div class="dish-description"><b>Rajasthani Cuisine:</b> Dal Baati Churma<br>Baked wheat dumplings served with spicy lentils and a sweet crumbled wheat dessert.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/beng.jpeg');">
+    <div class="dish-image"></div>
+    <div class="dish-content">
+      <div class="dish-description"><b>Bengali Cuisine:</b> Rosogolla<br>Spongy, syrupy cottage cheese balls that melt in the mouth, a true Bengali delicacy.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

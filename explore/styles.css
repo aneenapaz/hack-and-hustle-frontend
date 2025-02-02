@@ -1,0 +1,82 @@
+body {
+    background-color: black; 
+    color: white; /* Set text color to white for better contrast */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.logo {
+    display: flex; /* Use flexbox for logo and heading */
+    align-items: center; 
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.logo h1 {
+    margin-left: 10px; /* Add spacing between logo and heading */
+    color: white; /* Set heading text color to white */
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: white; 
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.food-spot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.food-spot-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #222; 
+    color: white; 
+}
+
+.food-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.food-button img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.food-button h3 {
+    margin-top: 10px;
+    text-align: center;
+    color: white; 
+}
+
+.food-button .rating {
+    text-align: center;
+    color: white; 
+}

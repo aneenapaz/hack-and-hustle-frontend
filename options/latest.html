@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Juice Up Restaurants</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: beige;
+  color: black;
+}.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: 90vh;
+  align-content: space-around;
+}.dish-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 250px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+}.dish-icon:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker overlay on hover */
+}.dish-image {  /* Style for the image overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  z-index: -1; /* Place image behind content */
+  opacity: 0.5; /* Adjust opacity as needed */
+}.dish-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+  padding: 10px;
+  border-radius: 5px;
+}.dish-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}.dish-description {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+.dish-grid {
+    grid-template-columns: repeat(2, 1fr);
+    height: 90vh;
+  }
+.dish-icon {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+.dish-grid {
+    grid-template-columns: repeat(1, 1fr);
+    height: 90vh;
+  }
+.dish-icon {
+    min-height: 200px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Fresh on the Plate: Newest Additions to the Food Scene! </h1>
+
+<div class="dish-grid">
+  <div class="dish-icon" style="background-image: url('assets/peri.jpeg');">
+    <div class="dish-image"></div> <div class="dish-content">
+      <div class="dish-name">Peri Peri Dosa</div>
+      <div class="dish-description">A spicy fusion twist on the classic dosa, packed with fiery peri peri flavors.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/sushi.jpg');">
+    <div class="dish-image"></div> <div class="dish-content">
+      <div class="dish-name">Sushi Khakra</div>
+      <div class="dish-description">A creative blend of Japanese sushi and crispy Gujarati khakra, topped with fresh veggies and sauces.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/maggi.jpeg');">
+    <div class="dish-image"></div> <div class="dish-content">
+      <div class="dish-name">Tandoori Maggi</div>
+      <div class="dish-description">The beloved instant noodles get a smoky, tandoori makeover with bold spices.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/buc.jpeg');">
+    <div class="dish-image"></div> <div class="dish-content">
+      <div class="dish-name">Butter Chicken Pizza</div>
+      <div class="dish-description">A delicious Indo-Italian fusion, combining creamy butter chicken with cheesy pizza.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/avo.jpeg');">
+    <div class="dish-image"></div> <div class="dish-content">
+      <div class="dish-name">Avocado Chaat</div>
+      <div class="dish-description">A modern take on chaat, blending buttery avocado with tangy Indian spices.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/choco.webp');">
+    <div class="dish-image"></div> <div class="dish-content">
+      <div class="dish-name">Chocolate Pani Puri</div>
+      <div class="dish-description">A dessert twist on the classic, filled with chocolate mousse and sweet syrups.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

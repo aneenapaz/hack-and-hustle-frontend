@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food Spot</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .back-to-home {
+            background-color: #673ab7;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-box {
+            text-align: center;
+            width: 100%;
+        }
+
+        .form-box h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1.1em;
+        }
+
+        .submit-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+</head>
+<body data-background-image="assets/cooking0.jpg">
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo" width="100">
+        </div>
+        <nav>
+            <a href="index1.html"><button class="back-to-home">Back to Home</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="form-box">
+                <h2>Add a Spot!</h2>
+                <form id="food-spot-form" action="submit_spot.php" method="post" enctype="multipart/form-data">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+
+                    <label for="address">Address:</label><br>
+                    <input type="text" id="address" name="address" placeholder="Address" required><br><br>
+
+                    <label for="cuisine">Cuisine:</label><br>
+                    <input type="text" id="cuisine" name="cuisine" placeholder="Cuisine" required><br><br>
+
+                    <label for="price">Price Range ($ - $$$):</label><br>
+                    <input type="text" id="price" name="price" placeholder="Price Range ($ - $$$)"><br><br>
+
+                    <label for="image">Image:</label><br>
+                    <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+                    <a href="index1.html"><button type="submit" class="submit-button">Submit</button></a>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const backgroundImage = body.dataset.backgroundImage;
+
+            if (backgroundImage) {
+                body.style.backgroundImage = `url("${backgroundImage}")`;
+                body.style.backgroundSize = "cover";
+                body.style.backgroundRepeat = "no-repeat";
+                body.style.backgroundPosition = "center";
+            }
+
+            const form = document.getElementById('food-spot-form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                fetch('submit_spot.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Food spot added successfully!");
+                        window.location.href = 'index1.html';
+                    } else {
+                        alert("Error adding food spot: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    alert("An error occurred: " + error);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

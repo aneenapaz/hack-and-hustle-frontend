@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Juice Up Restaurants</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: beige;
+  color: black;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: 90vh;
+  align-content: space-around;
+}
+
+.dish-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 250px;
+  padding: 20px;
+  /* Fallback background color */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  background-size: cover; /* Cover the entire box */
+  background-position: center; /* Center the image */
+}
+
+.dish-icon:hover {
+  background-color: rgba(240, 240, 240, 0.8); /* Slightly transparent on hover */
+}
+
+.dish-content {
+  position: relative;
+  z-index: 1; /* Ensure text is above the image */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(240, 240, 240, 0.7); /* Semi-transparent background for text */
+  padding: 10px; /* Add some padding to the content area */
+  border-radius: 5px;
+}
+
+.dish-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.dish-description {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+  .dish-grid {
+    grid-template-columns: repeat(2, 1fr);
+    height: 90vh;
+  }
+  .dish-icon {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dish-grid {
+    grid-template-columns: repeat(1, 1fr);
+    height: 90vh;
+  }
+  .dish-icon {
+    min-height: 200px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<h1>Trending Tastes: The Hottest Dishes You Can’t Miss!</h1>
+
+<div class="dish-grid">
+  <div class="dish-icon" style="background-image: url('assets/butter.jpeg');">
+    <div class="dish-content">
+      <div class="dish-name">Butter Chicken</div>
+      <div class="dish-description">A creamy, tomato-based North Indian curry with tender tandoori chicken.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/tandoori.jpg');">
+    <div class="dish-content">
+      <div class="dish-name">Tandoori Momos</div>
+      <div class="dish-description">A fusion twist on the classic dumplings, grilled and coated with smoky tandoori spices.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/malabar.jpeg');">
+    <div class="dish-content">
+      <div class="dish-name">Malabar Parotta with Kurma</div>
+      <div class="dish-description">Flaky, layered South Indian bread served with a rich vegetable or meat curry.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/chicken.webp');">
+    <div class="dish-content">
+      <div class="dish-name">Chicken 65</div>
+      <div class="dish-description">A crispy, spicy South Indian fried chicken dish with a burst of curry leaf flavor.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/chur.jpeg');">
+    <div class="dish-content">
+      <div class="dish-name">Chur Chur Naan with Dal Makhani</div>
+      <div class="dish-description">Flaky, stuffed naan served with velvety, slow-cooked black lentils.</div>
+    </div>
+  </div>
+
+  <div class="dish-icon" style="background-image: url('assets/ghevar.jpg');">
+    <div class="dish-content">
+      <div class="dish-name">Ghevar</div>
+      <div class="dish-description">A festive Rajasthani dessert, deep-fried and soaked in sugar syrup, often topped with rabri.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

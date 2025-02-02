@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Spot App</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 960px; /* Corrected max-width */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        .logo h1 {
+            margin-left: 10px;
+            color: white;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .food-card {
+            background-color: #222;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .food-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .food-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .food-card p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .food-card .rating {
+            color: gold; /* Or any color you prefer */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Food Spot Logo">
+                <h1>Flavour Quest</h1>
+            </div>
+        </header>
+
+        <div class="food-grid">
+            <div class="food-card">
+                <h3>Reenus cool bar</h3>
+                <p>Address: Thammanam - Bazaar Rd, Mattancherry, Ernakulam</p>
+                <p>price: Rs.20-100</p>
+                <p>Rating: ★★★★★</p>
+            </div>
+
+            <div class="food-card">
+                <h3>Fruitbae</h3>
+                <p>Address: Panampilly 5th Cross Rd, KV Nagar, Panampilly Nagar, Ernakulam</p>
+                <p>price: Rs 40-200</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <div class="food-card">
+                <h3>Hh Juicesji Ali Fresa</h3>
+                <p>Address: Opposite City Silks, Palarivattom junction, Civil Line Rd, Palarivattom, Cochin</p>
+                <p>price: Rs.200-400</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            <div class="food-card">
+                <h3>Wonder Blend Food Joint</h3>
+                <p>Address: Metro Station, behind JNL stadium, near Indian Oil Pump, Kaloor, Kochi, Ernakulam</p>
+                <p>price: Rs.1-200</p>
+                <p>Rating: ★★★★★</p>
+            </div>
+
+            <div class="food-card">
+                <h3>bonte de Bottld</h3>
+                <p>Address: N Fort Rd, Vadakkekotta, Kottakonam, Thripunithara, Kochi</p>
+                <p>price: Rs.1-200</p>
+                <p>Rating: ★★★★★</p>
+            </div>
+
+            <div class="food-card">
+                <h3>Seetha Devi Juice Parlour</h3>
+                <p>Address: Opp. infopark Rd, Civil Station, Kakkanad, Kochi</p>
+                <p>price: Rs.50-200</p>
+                <p>Rating: ★★★★☆</p>
+            </div>
+
+            </div>
+    </div>
+
+</body>
+</html>

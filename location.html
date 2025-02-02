@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearby Food Spots</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+        #places-list {
+            margin-top: 20px;
+        }
+        .place-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .place-item h3 {
+            margin-top: 0;
+        }
+        .place-details {
+            margin-top: 10px;
+        }
+        .place-details img {
+            max-width: 200px;
+            height: auto;
+            margin-right: 10px;
+            float: left;
+        }
+        .highlighted-marker {
+            border: 3px solid red;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        #location {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: black;
+            color: white;
+            margin-right: 10px;
+            width: 70%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #viewSpotsContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #viewSpotsButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Nearby Food Spots</h1>
+
+    <div class="search-box">
+        <input type="text" id="location" placeholder="Enter address or coordinates" >
+        <button id="findButton" onclick="getNearbyPlaces()">Find Food Spots</button>
+    </div>
+</div>
+
+<div id="map"></div>
+<div id="places-list"></div>
+
+<div id="viewSpotsContainer" style="display:none;">
+    <button id="viewSpotsButton" onclick="redirectToTpra()">View Spots</button>
+</div>
+
+<script>
+    let map;
+    let service;
+    let infowindow;
+    let placesMarkers = [];
+    let highlightedMarker = null;
+    let mapLoaded = false;
+
+    function initMap(location) {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: location,
+            zoom: 15,
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        service = new google.maps.places.PlacesService(map);
+
+        mapLoaded = true;
+        showViewSpotsButton();
+
+        // Add the initial search after map loads:
+        getNearbyPlaces();
+    }
+
+    function getNearbyPlaces() {
+        const locationInput = document.getElementById("location");
+        const locationValue = locationInput.value;
+
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({'address': locationValue}, (results, status) => {
+            if (status === 'OK') {
+                const location = results[0].geometry.location;
+
+                // Check if the map is already initialized. If not, initialize it
+                if (!map) {
+                    initMap(location);
+                } else {
+                    map.setCenter(location); // Just change the center if map exists.
+                }
+
+
+                placesMarkers.forEach(marker => marker.setMap(null));
+                placesMarkers = [];
+                highlightedMarker = null;
+
+                const request = {
+                    location: location,
+                    radius: 5000,
+                    type: ['restaurant', 'cafe', 'meal_delivery', 'meal_takeaway'],
+                    keyword: 'restaurant'
+                };
+
+                service.nearbySearch(request, (results, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        const placesList = document.getElementById("places-list");
+                        placesList.innerHTML = "";
+
+                        results.forEach(place => {
+                            const marker = createMarker(place);
+                            const placeDiv = document.createElement("div");
+                            placeDiv.className = "place-item";
+                            placeDiv.innerHTML = `<h3>${place.name}</h3><p>${place.vicinity}</p>`;
+
+                            placeDiv.addEventListener('click', () => {
+                                map.panTo(place.geometry.location);
+                                infowindow.setContent(`<h3>${place.name}</h3><p>${place.vicinity}</p>`);
+                                infowindow.open({ anchor: marker, map: map });
+                                getPlaceDetails(place.place_id, placeDiv);
+
+                                if (highlightedMarker) {
+                                    highlightedMarker.setIcon(null);
+                                }
+                                marker.setIcon({
+                                    path: google.maps.SymbolPath.CIRCLE,
+                                    scale: 10,
+                                    strokeColor: "red",
+                                    fillColor: "red",
+                                    fillOpacity: 1,
+                                });
+                                highlightedMarker = marker;
+                            });
+
+                            placesList.appendChild(placeDiv);
+                        });
+
+
+                    } else {
+                        console.error("Places Service failed:", status, request);
+                        alert("Error fetching nearby places. Please check the location and try again.");
+                    }
+                });
+
+            } else {
+                console.error("Geocode failed:", status);
+                alert("Location not found. Please enter a valid address or coordinates.");
+            }
+        });
+    }
+
+    function createMarker(place) {
+        const marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location,
+        });
+        placesMarkers.push(marker);
+        return marker;
+    }
+
+    function getPlaceDetails(placeId, placeDiv) {
+        const request = {
+            placeId: placeId,
+            fields: ['name', 'formatted_address', 'formatted_phone_number', 'website', 'photo']
+        };
+
+        service.getPlaceDetails(request, (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                let detailsHTML = "<div class='place-details'>";
+
+                if (place.photos) {
+                    place.photos.forEach(photo => {
+                        detailsHTML += `<img src="${photo.getUrl({ maxWidth: 200 })}" alt="Place Photo">`;
+                    });
+                }
+
+                detailsHTML += `<p>Address: ${place.formatted_address || 'N/A'}</p>`;
+                detailsHTML += `<p>Phone: ${place.formatted_phone_number || 'N/A'}</p>`;
+                detailsHTML += `<p>Website: ${place.website || 'N/A'}</p>`;
+                detailsHTML += "</div>";
+
+                placeDiv.innerHTML += detailsHTML;
+            } else {
+                console.error("Place Details failed:", status);
+            }
+        });
+    }
+
+    function redirectToTpra() {
+        window.location.href = "tpra.html";
+    }
+
+    function showViewSpotsButton() {
+        if (mapLoaded) {
+            document.getElementById("viewSpotsContainer").style.display = "flex";
+        }
+    }
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPpGvmd1qRDFeEL-wP14ZFPDbauJiAYzM&libraries=places" async defer></script>
+
+</body>
+</html>

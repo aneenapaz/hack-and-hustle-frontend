@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor Quest - Your Local Food Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="assets/logo.png" alt="Flavor Quest Logo" width="50">
+    </div>
+    <div class="nav-links">
+        <a href="abt.html">About</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html">Login/Sign Up</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Flavor Quest</h1>
+        <p>Whether you're a seasoned foodie or just curious, Flavor Quest is your guide to the best local eats in town.</p>
+        <div class="hero-buttons">
+            <a href="explore\index.html"><button class="discover-flavors-button">Discover Flavors</button></a>
+            <a href="Add_a_spot\index.html"><button class="add-a-spot-button">Add a Spot</button></a>
+            <a href="location.html"><button class="find-by-location">Find by Location</button></a>
+        </div>
+    </div>
+</div>
+
+<section id="discover" class="boxes">
+    <div class="box-container">
+        <a href="options\editor.html" class="box-link">  <div class="white-box">
+                <h2 class="box-heading">Editor's Pick</h2>
+                <div class="box">
+                    <img src="assets/pic6.jpg" alt="Editor's Pick Image" class="box-image">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="box-container">
+        <a href="options\trending.html" class="box-link">  <div class="white-box">
+                <h2 class="box-heading">Trending</h2>
+                <div class="box">
+                    <img src="assets/pic5.jpg" alt="Trending Image" class="box-image">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="box-container">
+        <a href="options\latest.html" class="box-link">  <div class="white-box">
+                <h2 class="box-heading">Latest</h2>
+                <div class="box">
+                    <img src="assets/pic4.jpg" alt="Newest Image" class="box-image">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="box-container">
+        <a href="options\cuisines.html" class="box-link">  <div class="white-box">
+                <h2 class="box-heading">Popular Cuisines</h2>
+                <div class="box">
+                    <img src="assets/pic3.jpg" alt="Popular Image" class="box-image">
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section id="addspot" class="add-spot-section"> 
+    </section>
+
+
+<script>
+    function setBackgroundImage(imagePath) {
+        document.body.style.backgroundImage = `url("assets/bgi.jpg")`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
+    }
+
+    setBackgroundImage("assets/bg.jpg");
+</script>
+
+</body>
+</html>
