@@ -5,9 +5,9 @@ Basic Details:
 Team Name: Hack and Hustle
 
 Team Members:
-Member 1: Akshaya J - Govt. Model Engineering College, Thrikkakara
-Member 2: Ananya Hariprakash - Govt. Model Engineering College, Thrikkakara
-Member 3: Aneena Cherian - Govt. Model Engineering College, Thrikkakara
+Member 1: Akshaya J - Govt. Model Engineering College, Thrikkakara.
+Member 2: Ananya Hariprakash - Govt. Model Engineering College, Thrikkakara.
+Member 3: Aneena Cherian - Govt. Model Engineering College, Thrikkakara.
 
 Hosted Project Link:
 [mention your project hosted project link here]
