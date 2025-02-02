@@ -91,10 +91,7 @@ Flavor Quest is a website for exploring existing food spots and adding new ones.
 Project Demo:
 --
 Video:
-
-
-
-
+https://github.com/user-attachments/assets/2d40b6b5-be38-490f-8d92-be32fd873fdb
 
 
 Team Contributions:
